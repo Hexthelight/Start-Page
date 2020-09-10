@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+<body>
+    <div id="clock"></div>
+
+    <div id="date"></div>
+
+    <div id="weather-container">
+        <div class="weather-icon"><img src="" alt=""></div>
+        <div class="temperature-value"><p>- <span>c</span></p></div>
+        <div class="temperature-description"><p> - </p></div>
+    </div>
+
+<button id="button" onclick="active()">
+    <div class="button-text">Search with Ecosia...</div>
+    <img src="/Logos/search.svg" alt="">
+</button>
+    
+    <div action="https://ecosia.org/search" type="GET" id="search" >
+            <div id="close" onclick="turnOff()">X</div>
+            <div id="outer-box" onclick="turnOff()"></div>
+            <form action="https://ecosia.org/search" type="GET" id="searchbar">
+                <input class="searchbox" type="search"  name="q" placeholder="Search...">
+            </form>
+    </div>
+
+    <div id="leftnav">
+        <div class="selector" onclick="entUpdate()">Entertainment</div>
+        <div class="selector" onclick="devUpdate()">Development</div>
+        <div class="selector" onclick="shoUpdate()">Shopping</div>
+        <div class="selector" onclick="spoUpdate()">Sports</div>
+        <div class="selector" onclick="socUpdate()">Social_Media</div>
+        <div class="selector" onclick="worUpdate()">Work</div>
+    </div>
+
+    <div id="rightnav">
+        <a href="https://mail.google.com/mail/u/0/#inbox" class="link">Email</a>
+        <a href="https://calendar.google.com/calendar/r?pli=1" class="link">Calendar</a>
+        <a href="https://www.google.co.uk/maps" class="link">Maps</a>
+        <a href="https://my.whisk.com" class="link">Recipes</a>
+        <a href="" class="link">Home_Assistant</a>
+        <a href="https://mega.co.nz" class="link">Secure_Folder</a>
+    </div>
+
+    <div id="linkboard">
+        <div id="entertain-board">
+            
+            <a href="https://www.youtube.com" class="item">
+                <img src="/Logos/youtube.svg" alt="">
+                <p>Youtube</p>
+            </a>
+
+            <a href="https://www.bbc.co.uk/iplayer" class="item">
+                <img src="/Logos/BBC.svg" alt="">
+                <p>iPlayer</p>
+            </a>
+
+            <a href="https://www.netflix.com" class="item">
+                <img src="/Logos/Netflix.svg" alt="">
+                <p>Netflix</p>
+            </a>
+
+            <a href="https://www.itv.com/hub/itv" class="item">
+                <img src="/Logos/ITV.svg" alt="">
+                <p>ITV Hub</p>
+            </a>
+
+            <a href="https://www.channel4.com" class="item">
+                <img src="/Logos/all4.svg" alt="">
+                <p>All4</p>
+            </a>
+
+            <a href="https://www.disneyplus.com" class="item">
+                <img src="/Logos/disney.svg" alt="">
+                <p>Disney+</p>
+            </a>
+
+            <a href="https://www.amazon.co.uk/Amazon-Video/b?node=3010085031" class="item">
+                <img src="/Logos/prime.svg" alt="">
+                <p>Amazon Prime</p>
+            </a>
+
+        </div>
+        
+        <div id="develop-board">
+            
+            <a href="https://www.figma.com/files/drafts" class="item">
+                <img src="/Logos/Figma.svg" alt="">
+                <p>Figma</p>
+            </a>
+
+            <a href="https://shape.so/app/icons" class="item">
+                <img src="/Logos/Shape.svg" alt="">
+                <p>Shape</p>
+            </a>
+
+            <a href="https://github.com" class="item">
+                <img src="/Logos/github.svg" alt="">
+                <p>Github</p>
+            </a>
+
+            <a href="https://www.interaction-design.org" class="item">
+                <img src="/Logos/IDF.svg" alt="">
+                <p>IDF</p>
+            </a>
+
+            <a href="https://material.io/design" class="item">
+                <img src="/Logos/Material Design.svg" alt="">
+                <p>Material Design</p>
+            </a>
+
+            <a href="https://developer.apple.com/design/human-interface-guidelines/ios/overview/themes/" class="item">
+                <img src="/Logos/apple logo-logo.svg" alt="">
+                <p>Apple</p>
+            </a>
+
+        </div>
+
+        <div id="shop-board">
+            
+            <a href="https://smile.amazon.co.uk" class="item">
+                <img src="/Logos/amazon.svg" alt="">
+                <p>Amazon</p>
+            </a>
+
+            <a href="https://www.humblebundle.com" class="item">
+                <img src="/Logos/Humble Bundle.svg" alt="">
+                <p>Humble Bundle</p>
+            </a>
+
+            <a href="https://www.g2a.com" class="item">
+                <img src="/Logos/g2a.svg" alt="">
+                <p>G2A</p>
+            </a>
+
+        </div>
+        
+        <div id="sports-board">
+           
+            <a href="https://www.skysports.com/f1" class="item">
+                <img src="/Logos/sky.svg" alt="">
+                <p>Sky Sports</p>
+            </a>
+
+            <a href="https://www.formula1.com" class="item">
+                <img src="/Logos/F1.svg" alt="">
+                <p>Formula 1</p>
+            </a>
+            
+            <a href="https://www.fiaformulae.com" class="item">
+                <img src="/Logos/FE.svg" alt="">
+                <p>Formula E</p>
+            </a>
+            
+            <a href="https://www.autosport.com" class="item">
+                <img src="/Logos/Autosport.svg" alt="">
+                <p>Autosport</p>
+            </a>
+
+        </div>
+        
+        <div id="sm-board">
+            
+            <a href="https://www.reddit.com" class="item">
+                <img src="/Logos/Reddit.svg" alt="">
+                <p>Reddit</p>
+            </a>
+
+            <a href="https://www.pinterest.com" class="item">
+                <img src="/Logos/Pinterest.svg" alt="">
+                <p>Pinterest</p>
+            </a>
+
+            <a href="https://www.linkedin.com/feed/" class="item">
+                <img src="/Logos/linkedin.svg" alt="">
+                <p>Linkedin</p>
+            </a>
+
+        </div>
+        
+        <div id="work-board">
+            
+            <a href="https://remote.hhllp.co.uk/vpn/index.html" class="item">
+                <img src="/Logos/HH.svg" alt="">
+                <p>Citrix</p>
+            </a>
+
+            <a href="https://login.xero.com" class="item">
+                <img src="/Logos/Xero.svg" alt="">
+                <p>Xero</p>
+            </a>
+
+            <a href="https://app.receipt-bank.com" class="item">
+                <img src="/Logos/Receipt Bank.svg" alt="">
+                <p>Receipt Bank</p>
+            </a>
+
+            <a href="https://app.xavier-analytics.com" class="item">
+                <img src="/Logos/Xavier.svg" alt="">
+                <p>Xavier</p>
+            </a>
+
+            <a href="https://sublimeaccounting.senta.co" class="item">
+                <img src="/Logos/senta.svg" alt="">
+                <p>Senta</p>
+            </a>
+
+            <a href="https://sublimeaccounting.slack.com" class="item">
+                <img src="/Logos/slack.svg" alt="">
+                <p>Slack</p>
+            </a>
+
+        </div>
+
+    </div>
+    
+<script src="weather.js"></script>
+
+<script src="source.js"></script>
+</body>
+</html>

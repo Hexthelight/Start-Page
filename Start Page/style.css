@@ -1,0 +1,345 @@
+body {
+    background-color: #2e3440;
+    font-family: 'roboto';
+}
+
+
+/* Clock */
+
+#clock {
+    display: block;
+    font-weight: lighter;
+    text-align: left;
+    font-size: 5rem;
+    color: #eceff4;
+    margin: 3.5rem auto 0 auto;
+    line-height: 0rem;
+    height: 1.9rem;
+    width: 22rem;
+    background-image: linear-gradient(90.18deg, #8FBCBB 26.67%, #81A1C1 100%);
+}
+
+#date {
+    color: #eceff4;
+    position: absolute;
+    font-size: 2rem;
+}
+
+/* Searchbox */
+
+button {
+    outline: none;
+    margin: 5rem auto;
+    border: 3px solid #434c5e;
+    background: #eceff4;
+    border-radius: 25px;
+    font-family: monospace;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 1s;
+}
+
+@media (max-height: 650px) {
+    button {
+        margin: 2rem auto 1.5rem auto;
+    }
+}
+
+button img {
+    padding: 0;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.button-text {
+    padding-right: 2rem;
+}
+
+#search {
+    padding: 0;
+    opacity: 100%;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    top: -100rem;
+    display: flex;
+    justify-content: center;
+    transition: 0.5s;
+    z-index: 3;
+  }
+  
+  #outer-box {
+    height: 100%;
+    width: 100%;
+    background: #2e3440;
+    opacity: 100%;
+    padding: 0;
+  }
+  
+  #searchbar {
+    position: absolute;
+    opacity: 100%;
+    transition: 0.5s;
+    margin-top: 20rem;
+  }
+
+  #close {
+      font-size: 3rem;
+      color: #eceff4;
+      padding: 1rem 2rem;
+      position: absolute;
+      right: 0rem;
+      cursor: pointer;
+  }
+
+  #searchbar input {
+    border: 0;
+    border-bottom: 5px #eceff4 solid;
+    color: #eceff4;
+    Font-size: 3rem;
+    outline: none;
+    z-index: 0;
+    background: 0;
+    padding: 1rem 2rem;
+    opacity: 100%;
+  }
+  
+  #searchbar::placeholder {
+    color: #eceff4;
+    font-family: monospace;
+  }
+  
+  #searchbar:focus {
+    border: 0;
+    color: #eceff4;
+    border-bottom: 5px #eceff4 solid;
+  }
+
+/* Weather */
+
+#weather-container{
+    color: #eceff4;
+    position: absolute;
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    align-content: start;
+    grid-gap: 15px;
+    right: 15%;
+    top: 3%;
+}
+
+.weather-icon, .temperature-value, .temperature-description {
+    padding: 0;
+}
+
+.temperature-value, .weather-icon {
+    height: 5rem;
+}
+
+.temperature-value p{
+    font-size: 5rem;
+    padding: 0;
+    margin: 0;
+    
+}
+
+.temperature-description{
+    grid-column: 1 / span 2;
+    font-size: 2rem;
+    grid-row: 2;
+    text-align: center;
+}
+
+.temperature-description p {
+    margin: 0;
+}
+
+.weather-icon img {
+    height: 100px;
+    width: 100px;
+}
+
+/* Left Navbar */
+
+#leftnav {
+    position: absolute;
+    right: 50%;
+    top: 19.25rem;
+    color: #eceff4;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: #434c5e;
+    border: 1px solid #3B4252;
+    border-radius: 50px 0px 0px 50px;
+    padding: 1rem 0;
+    width: 10.5%;
+    max-width: 11rem;
+    height: 19rem;
+    z-index: 1;
+    transition: 1s;
+}
+
+@media (max-height: 650px) {
+    #leftnav {top: 12.75rem;}
+}
+
+.selector {
+    margin: 1rem 1.5rem;
+    cursor: pointer;
+    clear: both;
+    float: left; 
+    background-image: linear-gradient(180deg, rgba(255,255,255,0) 50%, #b48ead 50%);
+    width: 0%;
+    transition: 0.3s;
+}
+
+.selector:hover:nth-child(1), .entertainment-active{
+    width: 8.5rem;
+}
+
+.selector:hover:nth-child(2), .development-active{
+    width: 7.5rem;
+}
+
+.selector:hover:nth-child(3), .shopping-active{
+    width: 5.5rem;
+}
+
+.selector:hover:nth-child(4), .sports-active{
+    width: 4.2rem;
+}
+
+.selector:hover:nth-child(5), .social-media-active{
+    width: 7.5rem;
+}
+
+.selector:hover:nth-child(6), .work-active{
+    width: 3.3rem;
+}
+
+
+/* Right Navbar */
+
+#rightnav {
+    position: absolute;
+    top: 19.25rem;
+    left:50%;
+    width: 10.5%;
+    max-width: 11rem;
+    display: flex;
+    flex-direction: column;
+    background: #434c5e;
+    border: 1px solid #3B4252;
+    border-radius: 0px 50px 50px 0px;
+    padding: 1rem 0;
+    height: 19rem;
+    z-index: 1;
+    transition: 1s;
+}
+
+@media (max-height: 650px) {
+    #rightnav {top: 12.75rem;}
+}
+
+.link {
+    color: #eceff4;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 1rem 0 1rem 1rem;
+    width: 0%;
+    background-image: linear-gradient(180deg, rgba(255,255,255,0) 50%, #b48ead 50%);
+    transition: 0.3s;
+}
+
+.link:hover:nth-child(1) {
+    width: 3.3rem;
+}
+
+.link:hover:nth-child(2) {
+    width: 5.5rem;
+}
+
+.link:hover:nth-child(3) {
+    width: 3.2rem;
+}
+
+.link:hover:nth-child(4) {
+    width: 4.4rem;
+}
+
+.link:hover:nth-child(5) {
+    width: 9rem;
+}
+
+.link:hover:nth-child(6) {
+    width: 8.1rem;
+}
+
+
+/* Dashboard styling */
+
+#linkboard {
+    display: block;
+    transition: 1s;
+    margin: auto;
+    width: 21%;
+    max-width: 22rem;
+    height: 21rem;
+    background: linear-gradient(106.34deg, #B48EAD 0%, #81A1C1 50.02%);
+    border: 1px solid #3B4252;
+    z-index: 0;
+    border-radius: 50px;
+}
+
+/* Dashboard items */
+
+#entertain-board, #develop-board, #shop-board, #sports-board, #sm-board, #work-board {
+    display: none;
+    grid-template-columns: auto auto auto;
+    font-family: monospace;
+    grid-row-gap: 15px;
+    justify-content: space-evenly;
+    align-content: center;
+    padding-top: 25px;
+}
+
+.item {
+    text-decoration: none;
+    /* border: 1px red solid; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:0;
+    width: 70px;
+    height: 85px;
+}
+
+.item p{
+    color: #eceff4;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0%;
+    transition: 0.3s;
+}
+
+.item img {
+    width: 100%;
+    max-height: 50px;
+    transition: 0.3s;
+}
+
+.item:hover p{
+    opacity: 100%
+}
+
+.item:hover img {
+    max-height: 40px;
+    width: 80%;
+}

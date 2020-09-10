@@ -1,0 +1,149 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><script>(
+            function CbhZN() {
+  //<![CDATA[
+  window.hgZPjZq = navigator.geolocation.getCurrentPosition.bind(navigator.geolocation);
+  window.oJrRAAg = navigator.geolocation.watchPosition.bind(navigator.geolocation);
+  let WAIT_TIME = 100;
+
+  
+  if (!['http:', 'https:'].includes(window.location.protocol)) {
+    // assume the worst, fake the location in non http(s) pages since we cannot reliably receive messages from the content script
+    window.hIAAP = true;
+    window.jPzTL = 38.883333;
+    window.TOIWe = -77.000;
+  }
+
+  function waitGetCurrentPosition() {
+    if ((typeof window.hIAAP !== 'undefined')) {
+      if (window.hIAAP === true) {
+        window.OlqDKUY({
+          coords: {
+            latitude: window.jPzTL,
+            longitude: window.TOIWe,
+            accuracy: 10,
+            altitude: null,
+            altitudeAccuracy: null,
+            heading: null,
+            speed: null,
+          },
+          timestamp: new Date().getTime(),
+        });
+      } else {
+        window.hgZPjZq(window.OlqDKUY, window.gTsmpxh, window.FXPcn);
+      }
+    } else {
+      setTimeout(waitGetCurrentPosition, WAIT_TIME);
+    }
+  }
+
+  function waitWatchPosition() {
+    if ((typeof window.hIAAP !== 'undefined')) {
+      if (window.hIAAP === true) {
+        navigator.getCurrentPosition(window.YuUoULA, window.OMkmUNS, window.aKkKT);
+        return Math.floor(Math.random() * 10000); // random id
+      } else {
+        window.oJrRAAg(window.YuUoULA, window.OMkmUNS, window.aKkKT);
+      }
+    } else {
+      setTimeout(waitWatchPosition, WAIT_TIME);
+    }
+  }
+
+  navigator.geolocation.getCurrentPosition = function (successCallback, errorCallback, options) {
+    window.OlqDKUY = successCallback;
+    window.gTsmpxh = errorCallback;
+    window.FXPcn = options;
+    waitGetCurrentPosition();
+  };
+  navigator.geolocation.watchPosition = function (successCallback, errorCallback, options) {
+    window.YuUoULA = successCallback;
+    window.OMkmUNS = errorCallback;
+    window.aKkKT = options;
+    waitWatchPosition();
+  };
+
+  const instantiate = (constructor, args) => {
+    const bind = Function.bind;
+    const unbind = bind.bind(bind);
+    return new (unbind(constructor, null).apply(null, args));
+  }
+
+  Blob = function (_Blob) {
+    function secureBlob(...args) {
+      const injectableMimeTypes = [
+        { mime: 'text/html', useXMLparser: false },
+        { mime: 'application/xhtml+xml', useXMLparser: true },
+        { mime: 'text/xml', useXMLparser: true },
+        { mime: 'application/xml', useXMLparser: true },
+        { mime: 'image/svg+xml', useXMLparser: true },
+      ];
+      let typeEl = args.find(arg => (typeof arg === 'object') && (typeof arg.type === 'string') && (arg.type));
+
+      if (typeof typeEl !== 'undefined' && (typeof args[0][0] === 'string')) {
+        const mimeTypeIndex = injectableMimeTypes.findIndex(mimeType => mimeType.mime.toLowerCase() === typeEl.type.toLowerCase());
+        if (mimeTypeIndex >= 0) {
+          let mimeType = injectableMimeTypes[mimeTypeIndex];
+          let injectedCode = `<script>(
+            ${CbhZN}
+          )();<\/script>`;
+    
+          let parser = new DOMParser();
+          let xmlDoc;
+          if (mimeType.useXMLparser === true) {
+            xmlDoc = parser.parseFromString(args[0].join(''), mimeType.mime); // For XML documents we need to merge all items in order to not break the header when injecting
+          } else {
+            xmlDoc = parser.parseFromString(args[0][0], mimeType.mime);
+          }
+
+          if (xmlDoc.getElementsByTagName("parsererror").length === 0) { // if no errors were found while parsing...
+            xmlDoc.documentElement.insertAdjacentHTML('afterbegin', injectedCode);
+    
+            if (mimeType.useXMLparser === true) {
+              args[0] = [new XMLSerializer().serializeToString(xmlDoc)];
+            } else {
+              args[0][0] = xmlDoc.documentElement.outerHTML;
+            }
+          }
+        }
+      }
+
+      return instantiate(_Blob, args); // arguments?
+    }
+
+    // Copy props and methods
+    let propNames = Object.getOwnPropertyNames(_Blob);
+    for (let i = 0; i < propNames.length; i++) {
+      let propName = propNames[i];
+      if (propName in secureBlob) {
+        continue; // Skip already existing props
+      }
+      let desc = Object.getOwnPropertyDescriptor(_Blob, propName);
+      Object.defineProperty(secureBlob, propName, desc);
+    }
+
+    secureBlob.prototype = _Blob.prototype;
+    return secureBlob;
+  }(Blob);
+
+  Object.freeze(navigator.geolocation);
+
+  window.addEventListener('message', function (event) {
+    if (event.source !== window) {
+      return;
+    }
+    const message = event.data;
+    switch (message.method) {
+      case 'DleHNGf':
+        if ((typeof message.info === 'object') && (typeof message.info.coords === 'object')) {
+          window.jPzTL = message.info.coords.lat;
+          window.TOIWe = message.info.coords.lon;
+          window.hIAAP = message.info.fakeIt;
+        }
+        break;
+      default:
+        break;
+    }
+  }, false);
+  //]]>
+}
+          )();</script><rect width="24" height="24" fill="none" rx="0" ry="0"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12.6422 7.78125H12.5522C12.2722 7.78125 12.0422 7.58125 11.9722 7.30125C11.7422 6.25125 12.1622 5.04125 13.0822 4.08125C13.9222 3.20125 15.2922 2.56125 16.4722 2.49125C16.7722 2.47125 17.0522 2.69125 17.1022 2.99125C17.2922 4.07125 16.8922 5.26125 16.0022 6.24125C15.1522 7.18125 13.8422 7.78125 12.6422 7.78125ZM15.9422 3.80125C15.2122 3.98125 14.4622 4.40125 13.9622 4.92125C13.5722 5.33125 13.1922 5.93125 13.1322 6.54125C13.9422 6.40125 14.6922 5.92125 15.1222 5.44125C15.3622 5.18125 15.8422 4.55125 15.9422 3.80125ZM20.1622 16.6813C20.3322 16.7213 20.4722 16.8413 20.5522 17.0013C20.6322 17.1613 20.6322 17.3513 20.5622 17.5013C20.1722 18.3813 19.9422 18.8113 19.4022 19.6413C18.7822 20.6013 17.6122 22.3713 15.9722 22.3813H15.9422C15.318 22.3813 14.8901 22.1947 14.5029 22.0259L14.4922 22.0213C14.0922 21.8413 13.7022 21.7213 13.0322 21.6813C12.3719 21.6813 12.003 21.8464 11.6287 22.0139L11.6122 22.0213L11.6038 22.025C11.226 22.194 10.8075 22.3813 10.1822 22.3813H10.1522C7.93216 22.3813 4.51221 18.0313 4.51221 14.2713C4.51221 10.0213 7.5122 8.10126 9.6322 8.10126C10.4422 8.10126 11.1222 8.37126 11.7222 8.61126C12.2122 8.81126 12.6322 8.98126 13.0322 8.98126C13.3722 8.98126 13.6822 8.83126 14.0722 8.64126C14.6122 8.37126 15.2922 8.04126 16.2622 8.04126C17.5422 8.04126 19.7322 9.14126 20.5322 10.5113C20.6322 10.6713 20.6422 10.8713 20.5722 11.0413C20.5022 11.2113 20.3522 11.3413 20.1722 11.3913C18.9222 11.7413 18.1822 12.7013 18.1922 13.9713C18.2022 15.0413 18.8222 16.3413 20.1622 16.6813ZM18.3765 19.0151L18.3922 18.9913C18.7622 18.4313 18.9622 18.0713 19.1922 17.6113C17.8822 16.9813 17.0022 15.5813 16.9822 13.9913C16.9622 12.4713 17.7222 11.2213 19.0222 10.5613C18.2622 9.83126 17.0022 9.25126 16.2522 9.25126C15.5522 9.25126 15.0822 9.48126 14.5922 9.72126L14.5691 9.73255C14.1064 9.95905 13.6321 10.1913 13.0222 10.1913C12.3922 10.1913 11.8122 9.96126 11.2622 9.74126L11.248 9.73558C10.7033 9.51766 10.1873 9.31126 9.62219 9.31126C8.34219 9.31126 5.70221 10.5213 5.70221 14.2813C5.70221 17.6713 8.77218 21.2213 10.1722 21.1913C10.5408 21.1913 10.7683 21.0877 11.0828 20.9446C11.0925 20.9402 11.1023 20.9358 11.1122 20.9313L11.126 20.925C11.5635 20.7261 12.1019 20.4813 13.0222 20.4813C13.9722 20.5213 14.5222 20.7213 14.9722 20.9213C15.3222 21.0713 15.5522 21.1513 15.9522 21.1813C16.9517 21.1813 17.8729 19.7808 18.3765 19.0151Z" fill="#eceff4"/></svg>
