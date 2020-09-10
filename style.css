@@ -178,8 +178,7 @@ button img {
     border: 1px solid #3B4252;
     border-radius: 50px 0px 0px 50px;
     padding: 1rem 0;
-    width: 10.5%;
-    max-width: 11rem;
+    width: 11rem;
     height: 19rem;
     z-index: 1;
     transition: 1s;
@@ -230,8 +229,7 @@ button img {
     position: absolute;
     top: 19.25rem;
     left:50%;
-    width: 10.5%;
-    max-width: 11rem;
+    width: 11rem;
     display: flex;
     flex-direction: column;
     background: #434c5e;
