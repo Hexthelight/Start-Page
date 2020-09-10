@@ -19,7 +19,7 @@
   
   // Get Weather
   function getWeather() {
-      let api = `http://api.openweathermap.org/data/2.5/weather?q=Wendover,uk&APPID=${key}`;
+      let api = `https://api.openweathermap.org/data/2.5/weather?q=Wendover,uk&APPID=${key}`;
   
       fetch(api)
       .then(function(response){
