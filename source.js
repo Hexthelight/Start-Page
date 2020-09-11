@@ -1,17 +1,9 @@
+// To show time
+
 function updateClock() {
     let now = new Date(),
-    // months = ["January","February","March","April","May","June","July","August","September","October","November","Dececember"];
     mins = now.getMinutes();
     hours = now.getHours();
-
-    // var weekday = new Array(7);
-    // weekday[0] = "Sunday";
-    // weekday[1] = "Monday";
-    // weekday[2] = "Tuesday";
-    // weekday[3] = "Wednesday";
-    // weekday[4] = "Thursday";
-    // weekday[5] = "Friday";
-    // weekday[6] = "Saturday";
 
     if (now.getMinutes() < 10) {
         mins = '0' + now.getMinutes();
@@ -30,27 +22,63 @@ function updateClock() {
         time = now.getHours() + ':' + mins + '  PM';
     }
 
-    // if (now.getDate() === 2 || 22){
-    //     ordinal = "nd"
-    // }
-    // else if (now.getDate() === 2 || 22){
-    //     ordinal = "nd"
-    // }
-    // else {
-    //     ordinal = "th"
-    // }
-
-
-
-    // date = [weekday[now.getDay()]+ "," + " " + now.getDate()+ordinal + " " + months[now.getMonth()]];
-
     document.getElementById('clock').innerHTML = time;
-
-    // document.getElementById('date').innerHTML = date;
 
     setTimeout(updateClock, 1000);
 }
 updateClock();
+
+// To show date
+
+function updateDate(){
+
+    // Get day of week
+
+    let dayList = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+    let now = new Date();
+    let dayNumber = now.getDay();
+
+    let day = dayList[dayNumber-1];
+
+    // Get date
+
+    let date = now.getDate();
+
+    // Get Ordinal Indicators
+
+    if (date === 1 || date === 21 || date === 31) {
+        ordinalIndicator = "st";
+    }
+    else if (date === 2 || date === 22) {
+        ordinalIndicator = "nd";
+    }
+    else if (date === 3 || date === 23) {
+        ordinalIndicator = "rd";
+    }
+    else {
+        ordinalIndicator = "th";
+    }
+
+    let fullDate = date+ordinalIndicator;
+
+    // Get Month
+
+    let monthList = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+
+    let monthNumber = now.getMonth();
+
+    let month = monthList[monthNumber];
+
+    // Get Year
+
+    let year = now.getYear() + 1900;
+
+    // Collate and print to HTML
+
+    document.getElementById("date").innerHTML = day + ' ' + fullDate + ' ' + month + ' ' + year;
+}
+
+updateDate();
 
 // To expand dashboard
 
@@ -179,6 +207,8 @@ function worUpdate() {
     document.getElementsByClassName("selector")[4].classList.remove("social-media-active");
     document.getElementsByClassName("selector")[5].classList.add("work-active");
 }
+
+// Searchbar active
 
 function active() {
     document.getElementById("search").style.top = "0rem";

@@ -21,8 +21,13 @@ body {
 
 #date {
     color: #eceff4;
-    position: absolute;
-    font-size: 2rem;
+    display: block;
+    margin: 0 auto 0 auto;
+    font-size: 1rem;
+    text-transform: uppercase;
+    width: 24rem;
+    text-align: center;
+    letter-spacing: 4px;
 }
 
 /* Searchbox */
@@ -46,7 +51,7 @@ button {
 
 @media (max-height: 650px) {
     button {
-        margin: 2rem auto 1.5rem auto;
+        margin: 1rem auto 1rem auto;
     }
 }
 
@@ -170,7 +175,7 @@ button img {
 #leftnav {
     position: absolute;
     right: 50%;
-    top: 19.25rem;
+    top: 20.45rem;
     color: #eceff4;
     text-transform: uppercase;
     font-weight: bold;
@@ -186,7 +191,7 @@ button img {
 }
 
 @media (max-height: 650px) {
-    #leftnav {top: 12.75rem;}
+    #leftnav {top: 12.45rem;}
 }
 
 .selector {
@@ -228,7 +233,7 @@ button img {
 
 #rightnav {
     position: absolute;
-    top: 19.25rem;
+    top: 20.45rem;
     left:50%;
     width: 10.5%;
     max-width: 11rem;
@@ -244,7 +249,7 @@ button img {
 }
 
 @media (max-height: 650px) {
-    #rightnav {top: 12.75rem;}
+    #rightnav {top: 12.45rem;}
 }
 
 .link {

@@ -34,6 +34,8 @@
       .then(function(){
           displayWeather();
       })
+
+      console.log(api)
   }
   
   getWeather()
