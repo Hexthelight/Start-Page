@@ -34,11 +34,11 @@ function updateDate(){
 
     // Get day of week
 
-    let dayList = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+    let dayList = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
     let now = new Date();
     let dayNumber = now.getDay();
 
-    let day = dayList[dayNumber-1];
+    let day = dayList[dayNumber];
 
     // Get date
 
