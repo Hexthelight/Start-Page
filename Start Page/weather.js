@@ -42,7 +42,7 @@
   
   // Display weather to UI
   function displayWeather(){
-      iconElement.innerHTML = `<img src="./Weather icons/${weather.iconId}.svg"/>`;
+      iconElement.innerHTML = `<img src="/Weather icons/${weather.iconId}.svg"/>`;
       tempElement.innerHTML = `${weather.temperature.value}<span>c</span>`
       tempDescription.innerHTML = weather.description;
   }
